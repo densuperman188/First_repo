@@ -1,3 +1,9 @@
 import random
-get_numbers_ticket = random.sample(range(1, 50), 6)
-print(f'Randomly selected numbers: {get_numbers_ticket}')
+def get_numbers_ticket(min, max, quantity):
+    if min < 1 or max > 100 or min >= max:
+        return []
+    if quantity < 1 or quantity > (max - min + 1):
+        return []
+    numbers = random.sample(range(min, max + 1), quantity)
+    return sorted(numbers)
+print(get_numbers_ticket(1, 49, 6))
